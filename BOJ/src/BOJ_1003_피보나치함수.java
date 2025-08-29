@@ -18,8 +18,7 @@ public class BOJ_1003_피보나치함수 {
 			fiboA = new int[x+1];
 			fiboA[0] = 0;
 			fibo(x);
-			System.out.println(cnt0 + " " + cnt1);
-			
+			System.out.println(cnt0 + " " + cnt1);	
 		}
 	}
 	
