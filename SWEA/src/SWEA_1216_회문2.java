@@ -34,9 +34,7 @@ public class SWEA_1216_회문2 {
 				
 				
 			}
-			
-			
-			
+
 			System.out.println(result);
 			
 		}// 테케
