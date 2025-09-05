@@ -58,7 +58,6 @@ public class SWEA_8275_햄스터 {
     public static void hamster(int idx) {
     // ham에 배치해보자...
         if(idx == N) {
-//          System.out.println(Arrays.toString(ham));
             check();
             return;
         }
