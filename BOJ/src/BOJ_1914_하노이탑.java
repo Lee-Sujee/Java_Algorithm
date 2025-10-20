@@ -8,13 +8,11 @@ public class BOJ_1914_하노이탑 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		int N = Integer.parseInt(br.readLine());
-		if(N <= 20)
-			hanoi(N, 0, 1, 2);
-		else {
-			BigInteger ans = BigInteger.TWO.pow(N);
-			ans = ans.subtract(BigInteger.ONE);
-			System.out.println(ans);
-		
+		BigInteger ans = BigInteger.valueOf(2).pow(N);
+		ans = ans.subtract(BigInteger.valueOf(1));
+		System.out.println(ans);
+		if(N <= 20) {
+			hanoi(N, 1, 2, 3);
 		}
 		
 	}
