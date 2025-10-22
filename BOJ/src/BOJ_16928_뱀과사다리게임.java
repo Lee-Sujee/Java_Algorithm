@@ -28,40 +28,40 @@ public class BOJ_16928_뱀과사다리게임 {
 			snake[i][1] = Integer.parseInt(st.nextToken());
 		}
 		
-		Queue<Integer> q = new ArrayDeque<>();
-		int[] map = new int[101];
-		q.offer(1);
-		
+		boolean[] visited = new boolean[101];
+		Queue<int[]> q = new ArrayDeque<>();
+		q.offer(new int[]{1, 0}); // 시작점
+		visited[1] = true;
 		while(!q.isEmpty()) {
-			int cur = q.poll();
-			if(cur == 100) {
-				System.out.println(map[100]);
+			int tmp[] = q.poll();
+			int curr = tmp[0]; int cnt = tmp[1];
+			if(curr == 100) {
+				System.out.println(cnt);
 				return;
 			}
-			move : for(int i = 1; i <= 6; i++) {
-				int next = cur+i;
+			
+			for(int i = 6; i >= 1; i--) {
+				int next = curr + i;
 				if(next > 100) continue;
-				if(map[next] != 0) continue;
-				for(int j = 0; j < N; j++) {
-					if(next == ladder[j][0]) {
-						q.offer(ladder[j][1]);
-						map[next] = map[cur]+1;
-						continue move;
-					}
-				}
-				for(int j = 0; j < M; j++) {
-					if(next == snake[j][0]) {
-						q.offer(snake[j][1]);
-						map[next] = map[cur]+1;
-						continue move;
-					}
-				}
-				map[next] = map[cur]+1;
-				q.offer(next);
+			    for (int j = 0; j < N; j++) {
+                    if (next == ladder[j][0]) {
+                        next = ladder[j][1];
+                        break;
+                    }
+                }
+
+                for (int j = 0; j < M; j++) {
+                    if (next == snake[j][0]) {
+                        next = snake[j][1];
+                        break;
+                    }
+                }
+                
+				if(visited[next]) continue;
+				q.offer(new int[] {next, cnt+1});
+				visited[next] = true;
 			}
 		}
-		
-		
 	
 	}
 }
